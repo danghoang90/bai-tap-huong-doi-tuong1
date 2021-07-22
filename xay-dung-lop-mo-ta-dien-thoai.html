@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function Mobile (name, battery,memoryInbox,power) {
+      this.name = name;
+      this.battery = battery;
+      this.memoryInbox = [];
+      this.power = power;
+
+      this.turnOn = function () {
+          alert("Máy đang khả dụng");
+      }
+      this.turnOff = function () {
+          alert("Máy điện thoại đã tắt")
+      }
+      this.displayBattery = function () {
+          document.write("Còn lại "+this.battery+ " %Pin");
+      }
+      this.charge = function () {
+          this.battery++
+      }
+      this.sendMessage = function (mobile, message) {
+          mobile.memoryInbox.push(message);
+          this.battery--;
+
+      }
+      this.displayMessage = function () {
+          document.write(this.memoryInbox);
+          this.battery--;
+
+      }
+  }
+  let nokia = new Mobile('nokia3300', 100,100 , 'On');
+  let iphone = new Mobile('iphone11', 100, 100, 'On');
+  nokia.sendMessage(iphone, 'đập đá không?');
+  iphone.displayMessage();
+  document.write('<br>');
+  iphone.sendMessage(nokia, 'Rủ tao trà đá thì ok rủ tao đập đá thì thôi đê');
+  nokia.displayMessage();
+  document.write('<br>');
+  nokia.displayBattery();
+  nokia.turnOn();
+  iphone.turnOff();
+  nokia.charge();
+  document.write(nokia.battery);
+  document.write('<br>');
+  document.write(nokia.name + "Số pin còn lại là"+ nokia.battery);
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+  function Temperature(degreesC) {
+    this.degreesC = degreesC;
+    this.getDegreesC = function () {
+      return degreesC;
+      }
+    this.getDegreesF = function () {
+      if (degreesC < -273) {
+       return false;
+      } else {
+        return 9 / 5 * degreesC + 32;
+      }
+    }
+      this.getDegreesKelvins = function () {
+        if (degreesC < -273) {
+          return false;
+        } else {
+          return degreesC + 273.15;
+        }
+      }
+    }
+  let temperature = new Temperature(25);
+  let doF = temperature.getDegreesF();
+  let doKelvins = temperature.getDegreesKelvins();
+  alert("nhiệt độ F: "+ doF);
+  alert("độ Kenvin: " + doKelvins);
+</script>
+</body>
+</html>
